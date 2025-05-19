@@ -13,8 +13,14 @@ const app = express();
 
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
+
+const links = [
+  { href: "/", text: "Home" },
+  { href: "about", text: "About" },
+];
+
 app.get("/", (req, res) => {
-  res.render("index", { message: "EJS rocks!" });
+  res.render("index", { links: links });
 });
 
 app.use((err, req, res, next) => {
