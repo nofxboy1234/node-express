@@ -1,6 +1,8 @@
 import db from "../db.js";
+import asyncHandler from "express-async-handler";
 
-async function getAuthorById(req, res) {
+const getAuthorById = asyncHandler(async (req, res) => {
+  // throw new Error("OH NO!");
   const { authorId } = req.params;
 
   const author = await db.getAuthorById(Number(authorId));
@@ -11,6 +13,6 @@ async function getAuthorById(req, res) {
   }
 
   res.send(`Author Name: ${author.name}`);
-}
+});
 
 export { getAuthorById };
