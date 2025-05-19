@@ -17,7 +17,7 @@ app.use("/", indexRouter);
 app.use((err, req, res, next) => {
   // console.log("SERVER ERROR!");
   console.error(err);
-  res.status(500).send(err.message);
+  res.status(err.statusCode || 500).send(err.message);
 });
 
 // app.get("/", (req, res) => res.send("Hello, world!"));
