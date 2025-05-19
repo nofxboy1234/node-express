@@ -13,7 +13,9 @@ const app = express();
 
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
-app.use("/", indexRouter);
+app.get("/", (req, res) => {
+  res.render("index", { message: "EJS rocks!" });
+});
 
 app.use((err, req, res, next) => {
   // console.log("SERVER ERROR!");
