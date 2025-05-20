@@ -1,3 +1,5 @@
+import db from "../db/queries.js";
+
 // import { body, validationResult } from "express-validator";
 
 // const alphaErr = "must only contain letters.";
@@ -7,8 +9,11 @@
 //   body("username").trim().isLength({ min: 3, max: 10 }),
 // ];
 
-function usernamesListGet(req, res) {
-  console.log("usernames will be logged  here - wip");
+async function usernamesListGet(req, res) {
+  const usernames = await db.getAllUsernames();
+  console.log("Usernames: ", usernames);
+  // console.log("username 0: ", usernames[0].username);
+  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
 }
 
 function usernamesCreateGet(req, res) {
@@ -17,8 +22,10 @@ function usernamesCreateGet(req, res) {
   });
 }
 
-function usernamesCreatePost(req, res) {
-  console.log("username to be saved: ", req.body.username);
+async function usernamesCreatePost(req, res) {
+  const { username } = req.body;
+  await db.insertUsername(username);
+  res.redirect("/usernames/");
 }
 
 export default { usernamesListGet, usernamesCreateGet, usernamesCreatePost };
