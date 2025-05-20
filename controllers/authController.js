@@ -13,7 +13,12 @@ async function create(req, res, next) {
   try {
     const { username, password } = req.body;
     await db.insertAuthUser(username, password);
-    res.redirect("/auth");
+
+    const user = await db.findAuthUserByUsername(username);
+    console.log("*** created user: ", user);
+    req.login(user, () => {
+      return res.redirect("/auth");
+    });
   } catch (err) {
     return next(err);
   }
