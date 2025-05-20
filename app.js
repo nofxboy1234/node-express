@@ -7,6 +7,11 @@ import usersRouter from "./routes/usersRouter.js";
 import path from "node:path";
 import { fileURLToPath } from "url";
 import usernamesRouter from "./routes/usernamesRouter.js";
+// import pool from "./db/pool.js";
+import session from "express-session";
+import passport from "passport";
+import { Strategy as LocalStrategy } from "passport-local";
+import authRouter from "./routes/authRouter.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +26,9 @@ app.use(express.static(assetsPath));
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
+app.use(passport.session());
+
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 
@@ -34,6 +42,7 @@ const users = ["Rose", "Cake", "Biff"];
 // });
 app.use("/", usersRouter);
 app.use("/usernames", usernamesRouter);
+app.use("/auth", authRouter);
 
 app.use((err, req, res, next) => {
   console.log("SERVER ERROR!");
