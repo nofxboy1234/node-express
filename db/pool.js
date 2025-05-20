@@ -6,5 +6,5 @@ export default new Pool({
   database: "top_users",
   password: "dlp*FS&84",
   port: 5432,
-  // connectionString: "postgresql://dylan:@localhost:5432/top_users",
+  // connectionString: "postgresql://dylan:dlp*FS&84@localhost:5432/top_users",
 });
