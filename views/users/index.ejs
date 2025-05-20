@@ -11,6 +11,15 @@
       <li>
         ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>
         <a href="/<%= user.id %>/update">Update</a>
+        <form
+          action="/<%= user.id %>/delete"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" onclick="return confirm('Are you sure?');">
+            Delete
+          </button>
+        </form>
       </li>
       <% }); %> <% } %>
     </ul>
