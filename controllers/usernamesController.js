@@ -1,4 +1,4 @@
-import db from "../db/queries.js";
+import db from "../db/top_users/queries.js";
 
 // import { body, validationResult } from "express-validator";
 

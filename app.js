@@ -7,7 +7,6 @@ import usersRouter from "./routes/usersRouter.js";
 import path from "node:path";
 import { fileURLToPath } from "url";
 import usernamesRouter from "./routes/usernamesRouter.js";
-// import pool from "./db/pool.js";
 import session from "express-session";
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
