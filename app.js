@@ -6,6 +6,7 @@ import indexRouter from "./routes/indexRouter.js";
 import usersRouter from "./routes/usersRouter.js";
 import path from "node:path";
 import { fileURLToPath } from "url";
+import usernamesRouter from "./routes/usernamesRouter.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,6 +33,7 @@ const users = ["Rose", "Cake", "Biff"];
 //   res.render("index", { links: links, users: users });
 // });
 app.use("/", usersRouter);
+app.use("/usernames", usernamesRouter);
 
 app.use((err, req, res, next) => {
   console.log("SERVER ERROR!");
