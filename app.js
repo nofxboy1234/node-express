@@ -8,9 +8,8 @@ import path from "node:path";
 import { fileURLToPath } from "url";
 import usernamesRouter from "./routes/usernamesRouter.js";
 import session from "express-session";
-import passport from "passport";
-import { Strategy as LocalStrategy } from "passport-local";
 import authRouter from "./routes/authRouter.js";
+import passport from "./auth/passport.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

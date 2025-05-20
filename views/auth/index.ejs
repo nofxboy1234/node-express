@@ -6,7 +6,12 @@
     <title>Auth Index</title>
   </head>
   <body>
-    Auth Index!
+    <% if (locals.user) { %>
+    <h1>WELCOME BACK <%= user.username %>!</h1>
+    <a href="/auth/log-out">LOG OUT!</a>
+    <% } else { %>
+    <a href="/auth/log-in">Log in!</a>
     <a href="/auth/sign-up">Sign up!</a>
+    <% } %>
   </body>
 </html>
