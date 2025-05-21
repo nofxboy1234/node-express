@@ -26,7 +26,7 @@ async function create(req, res, next) {
 }
 
 async function login(req, res) {
-  res.render("auth/log-in");
+  res.render("auth/log-in", { messages: req.flash("error") });
 }
 
 async function logout(req, res, next) {

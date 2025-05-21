@@ -10,6 +10,7 @@ import usernamesRouter from "./routes/usernamesRouter.js";
 import session from "express-session";
 import authRouter from "./routes/authRouter.js";
 import passport from "./auth/passport.js";
+import flash from "connect-flash";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
+
+app.use(flash());
 
 app.use((req, res, next) => {
   console.log("\n");
