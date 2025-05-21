@@ -15,7 +15,6 @@ async function create(req, res, next) {
     await db.insertAuthUser(username, password);
 
     const user = await db.findAuthUserByUsername(username);
-    console.log("*** created user: ", user);
     req.login(user, () => {
       return res.redirect("/auth");
     });

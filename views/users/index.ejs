@@ -5,6 +5,7 @@
     <title><%= title %></title>
   </head>
   <body>
+    <%= locals.currentUser?.username %>
     <h1><%= title %></h1>
     <ul>
       <% if (locals.users) {%> <% users.forEach(user => { %>

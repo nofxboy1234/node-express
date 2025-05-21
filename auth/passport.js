@@ -8,11 +8,9 @@ passport.use(
       const user = await db.findAuthUserByUsername(username);
 
       if (!user) {
-        console.log("*** local strategy: no user");
         return done(null, false, { message: "Incorrect username" });
       }
       if (user.password !== password) {
-        console.log("*** local strategy: incorrect password");
         return done(null, false, { message: "Incorrect password" });
       }
       return done(null, user);

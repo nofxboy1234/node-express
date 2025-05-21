@@ -27,6 +27,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  console.log("\n");
+  console.log("Request path:", req.path);
+  // Your other middleware code
+  next();
+});
+
+app.use((req, res, next) => {
+  console.log("*** set current user to: ", req.user);
+  console.log("\n");
+  res.locals.currentUser = req.user;
+  next();
+});
+
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 

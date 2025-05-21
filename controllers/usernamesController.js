@@ -11,8 +11,6 @@ import db from "../db/top_users/queries.js";
 
 async function usernamesListGet(req, res) {
   const usernames = await db.getAllUsernames();
-  console.log("Usernames: ", usernames);
-  // console.log("username 0: ", usernames[0].username);
   res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
 }
 

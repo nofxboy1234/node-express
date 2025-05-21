@@ -28,7 +28,6 @@ function usersListGet(req, res) {
 }
 
 function usersCreateGet(req, res) {
-  console.log("*** usersCreateGet");
   res.render("users/createUser", {
     title: "Create user",
   });

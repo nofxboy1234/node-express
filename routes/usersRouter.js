@@ -10,6 +10,4 @@ usersRouter.get("/:id/update", usersController.usersUpdateGet);
 usersRouter.post("/:id/update", usersController.usersUpdatePost);
 usersRouter.post("/:id/delete", usersController.usersDeletPost);
 
-console.log("usersController: ", usersController);
-
 export default usersRouter;
