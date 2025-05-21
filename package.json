@@ -13,9 +13,11 @@
   "devDependencies": {
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.18",
+    "prisma": "^6.8.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.8.2",
     "bcryptjs": "^3.0.2",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.5.0",
